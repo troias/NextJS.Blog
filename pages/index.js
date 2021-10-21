@@ -2,7 +2,7 @@ import React from 'react'
 import HeroSection from '../components/HomePage/heroSection/heroSection'
 import FeaturedPost from '../components/homePage/featuredPosts/featuredPost'
 
-const dummyPosts = [{
+export const dummyPosts = [{
     title: "getting-started-with-next-js",
     exerpt: "post 1 experpt",
     image: "getting-started-nextjs.png",

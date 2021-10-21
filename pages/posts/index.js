@@ -1,11 +1,13 @@
 import React from 'react'
+import AllPosts from '../../components/posts/allposts'
+import { dummyPosts } from '../index'
 
- const Posts = () => {
+const Posts = () => {
     return (
-        <div>
-            
-        </div>
+
+        <AllPosts posts={dummyPosts} />
+
     )
 }
 
-export default  Posts
+export default Posts
