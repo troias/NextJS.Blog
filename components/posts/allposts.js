@@ -2,7 +2,11 @@ import React from 'react'
 import PostsGrid from './posts-grid'
 import classes from './all-posts.module.css'
 
+
+console.log("getAllposts",)
+
 const AllPosts = (props) => {
+
     return (
         <section>
             <h1>All Posts</h1>
@@ -10,5 +14,6 @@ const AllPosts = (props) => {
         </section>
     )
 }
+
 
 export default AllPosts

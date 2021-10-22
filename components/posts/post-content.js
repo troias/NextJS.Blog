@@ -1,4 +1,6 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import ReactDom from 'react-dom'
 import PostHeader from './post-header'
 import classes from './post-content.module.css'
 
@@ -17,11 +19,11 @@ export const dummyPosts =
 const PostContent = () => {
 
     const imagePath = `/images/posts/${dummyPosts.slug}/${dummyPosts.image}`
-    console.log("imagePath", imagePath)
+    // console.log("content", dummyPosts.content)
     return (
         <article className={classes.content}>
             <PostHeader title={dummyPosts.title} image={imagePath} />
-            {dummyPosts.content}
+            <ReactMarkdown children={dummyPosts.content}/> 
 
         </article>
     )
