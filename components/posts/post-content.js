@@ -16,14 +16,16 @@ export const dummyPosts =
 }
 
 
-const PostContent = () => {
+const PostContent = (props) => {
 
-    const imagePath = `/images/posts/${dummyPosts.slug}/${dummyPosts.image}`
+    const {post} = props
+    console.log("PostContent", post)
+    const imagePath = `/images/posts/${post.slug}/${post.image}`
     // console.log("content", dummyPosts.content)
     return (
         <article className={classes.content}>
-            <PostHeader title={dummyPosts.title} image={imagePath} />
-            <ReactMarkdown children={dummyPosts.content}/> 
+            <PostHeader title={post.title} image={imagePath} />
+            <ReactMarkdown children={post.content}/> 
 
         </article>
     )

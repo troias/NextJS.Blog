@@ -7,12 +7,13 @@ export const postsDirectory = path.join(process.cwd(), 'content', 'posts')
 
 
 
-const getPostData = (fileName) => {
-    const postPath = path.join(postsDirectory, fileName)
+export const getPostData = (postIdentifier) => {
+    const slugName = postIdentifier.replace(/\.md$/, '')
+    const postPath = path.join(postsDirectory, `${slugName}.md`)
     // console.log("postPath", postPath)
     const fileContent = fs.readFileSync(postPath, 'utf8')
     const { data, content } = matter(fileContent)
-    const slugName = fileName.replace(/\.md$/, '')
+   
     const postData = {
         slug: slugName,
         ...data,
@@ -21,13 +22,14 @@ const getPostData = (fileName) => {
     return postData
 }
 
+export const readPostsDir = () => fs.readdirSync(postsDirectory)
 
 export const getAllposts = () => {
+    const postsDirectory  = readPostsDir()
+    // const allPostsinDir = fs.readdirSync(postsDirectory)
+    console.log("allPostsinDir", postsDirectory)
 
-    const allPostsinDir = fs.readdirSync(postsDirectory)
-    console.log("allPostsinDir", allPostsinDir)
-
-    const allPostsObjs = allPostsinDir.map(post => {
+    const allPostsObjs = postsDirectory.map(post => {
         return getPostData(post)
     })
     console.log("allPostsObjs", allPostsObjs)
