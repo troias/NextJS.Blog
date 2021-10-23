@@ -14,7 +14,7 @@ const Posts = (props) => {
 
 export const getStaticProps = () => {
     const allPosts = getAllposts()
-    console.log("allPosts", allPosts)
+    // console.log("allPosts", allPosts)
     return {
         props: {
             posts: allPosts,

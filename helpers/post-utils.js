@@ -27,12 +27,12 @@ export const readPostsDir = () => fs.readdirSync(postsDirectory)
 export const getAllposts = () => {
     const postsDirectory  = readPostsDir()
     // const allPostsinDir = fs.readdirSync(postsDirectory)
-    console.log("allPostsinDir", postsDirectory)
+    // console.log("allPostsinDir", postsDirectory)
 
     const allPostsObjs = postsDirectory.map(post => {
         return getPostData(post)
     })
-    console.log("allPostsObjs", allPostsObjs)
+    // console.log("allPostsObjs", allPostsObjs)
     const sortedPosts = allPostsObjs.sort((postA, postB) => (postA.date > postB.date ? -1 : 1))
     return sortedPosts
 }

@@ -14,7 +14,7 @@ const PostItem = (props) => {
     const imagePath = `/images/posts/${slug}/${image}`
     const linkPath = `/posts/${slug}`
 
-    console.log("imagePath", imagePath)
+    // console.log("imagePath", imagePath)
 
     return (
         <li className={classes.post}>
