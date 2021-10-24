@@ -5,6 +5,7 @@ import Notification from '../ui/notification/notification'
 
 
 const sendContactData = async (contactDetails) => {
+
   const req = await fetch("/api/contact", {
     method: "POST",
     body: JSON.stringify(contactDetails),
@@ -15,7 +16,7 @@ const sendContactData = async (contactDetails) => {
     throw new Error("error sending message");
 
   }
-  const res = await req.json();
+  
 
   
 
@@ -27,7 +28,7 @@ const ContactForm = () => {
   const nameRef = useRef();
   const msgRef = useRef();
   const [reqStatus, setReqstatus] = useState();
-  const [notificationData, setNotificationData] = useState({});
+ 
 
 
 
@@ -43,7 +44,7 @@ const ContactForm = () => {
     if (reqStatus === "sucess") {
       const timer = setTimeout(() => {
         setReqstatus(null);
-      }, 3000)
+      }, 30)
 
       return () => clearTimeout(timer);
     }

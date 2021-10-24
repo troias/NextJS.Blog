@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 
 const HomePage = (props) => {
-    // console.log("HomePageProps", props.featuredPosts )
+    console.log("HomePageProps", process.env.MONGO_DB_NAME )
     return (
         <>
             <Head>

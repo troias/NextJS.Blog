@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const connectionString = `${process.env.NEXT_PUBLIC_MONGO_DB_HOST}${process.env.NEXT_PUBLIC_MONGO_DB_USERNAME}:${process.env.NEXT_PUBLIC_MONGO_DB_PASS}${process.env.NEXT_PUBLIC_MONGO_DB_HOST_CLUSTER}`
+const connectionString = `${process.env.MONGO_DB_HOST}${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASS}${process.env.MONGO_DB_HOST_CLUSTER}`
 
 let client 
 
@@ -33,8 +33,7 @@ const handler = async (req, res) => {
 
     if (req.method === 'GET') {
         client = await connectDatabase()
-        const allComments = await getAllComments(client, 'contacts')
-      
+        const allComments = await getAllComments(client, 'comment')
         res.status(200).json({ message: allComments })
     }
 
@@ -60,11 +59,11 @@ const handler = async (req, res) => {
         }
 
         client = await connectDatabase()
-        const result = await insertDocument(client, "contact", newMessage)
+        const result = await insertDocument(client, 'comment', newMessage)
         newMessage.id = result.insertedId
        
-
-       
+        const res = result.json()
+       console.log("res", res)
 
         client.close()
         res.status(201).json({ message: result })

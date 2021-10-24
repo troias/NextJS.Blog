@@ -20,12 +20,6 @@ const PostContent = (props) => {
 
     const customRenderers = {
 
-        // img(image) {
-    
-        //     return <Image src={`/images/posts/${post.slug}/${image.src}`} alt={image.alt} height={300} width={600} />
-    
-        // },
-
         p(paragraph) {
             const { node } = paragraph;
         
@@ -47,23 +41,20 @@ const PostContent = (props) => {
             return <p>{paragraph.children}</p>
         }, 
         code(code) { 
-            console.log("code", code)
+         
             const language = code.className.split('-')[1];
             return(
-                // <>
-                // // {code.children}
-                // </>
+             
                 <SyntaxHighlighter language={language}  children={code.children} style={atomDark}/>
             )
         }
     }
-    console.log("customRenderers", customRenderers)
+   
     const imagePath = `/images/posts/${post.slug}/${post.image}`
     return (
         <article className={classes.content}>
             <PostHeader title={post.title} image={imagePath} />
             <ReactMarkdown components={customRenderers}>{post.content}</ReactMarkdown>
-            {/* <ReactMarkdown components={customRenderers}>{post.content}</ReactMarkdown> */}
         </article>
     )
 }
