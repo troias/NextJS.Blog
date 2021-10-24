@@ -5,7 +5,7 @@ module.exports = (phase) => {
 
 
 
-  if (phase === "PHASE_DEVELOPMENT_SERVER") {
+  if (phase === PHASE_PRODUCTION_BUILD) {
     return {
       experimental: { esmExternals: true },
       webpack: (config, { isServer }) => {
@@ -24,7 +24,7 @@ module.exports = (phase) => {
     }
   }
 
-  if (phase == 'PHASE_PRODUCTION_BUILD') {
+  if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
       experimental: { esmExternals: true },
       webpack: (config, { isServer }) => {
