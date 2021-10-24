@@ -17,7 +17,7 @@ const sendContactData = async (contactDetails) => {
   }
   const res = await req.json();
 
-  console.log("resData", res);
+  
 
 }
 
@@ -114,9 +114,7 @@ const ContactForm = () => {
 
 
   };
-  console.log("reqStatus", reqStatus)
-  console.log("notificaitonData", notificationData)
-  console.log("reqData", reqData)
+
 
   return (
     <>

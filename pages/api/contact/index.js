@@ -1,9 +1,11 @@
 import { MongoClient } from 'mongodb';
 
-let client
+const connectionString = `${process.env.NEXT_PUBLIC_MONGO_DB_HOST}${process.env.NEXT_PUBLIC_MONGO_DB_USERNAME}:${process.env.NEXT_PUBLIC_MONGO_DB_PASS}${process.env.NEXT_PUBLIC_MONGO_DB_HOST_CLUSTER}`
+
+let client 
 
 export async function connectDatabase() {
-    const client = await MongoClient.connect(`${process.env.NEXT_PUBLIC_MONGO_DB_HOST}${process.env.NEXT_PUBLIC_MONGO_DB_USERNAME}:${process.env.NEXT_PUBLIC_MONGO_DB_PASS}${process.env.NEXT_PUBLIC_MONGO_DB_HOST_CLUSTER}`)
+    const client = await MongoClient.connect(connectionString)
 
     return client;
 }
@@ -32,7 +34,7 @@ const handler = async (req, res) => {
     if (req.method === 'GET') {
         client = await connectDatabase()
         const allComments = await getAllComments(client, 'contacts')
-        console.log("allComments", allComments)
+      
         res.status(200).json({ message: allComments })
     }
 
@@ -45,8 +47,7 @@ const handler = async (req, res) => {
             email, name, message,
         }
 
-        console.log("postBody", req.body)
-        console.log("newMessage", newMessage)
+       
 
 
         if (!email ||
@@ -63,7 +64,7 @@ const handler = async (req, res) => {
         newMessage.id = result.insertedId
        
 
-        console.log("result", result)
+       
 
         client.close()
         res.status(201).json({ message: result })

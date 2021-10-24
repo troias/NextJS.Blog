@@ -5,7 +5,7 @@ import Head from 'next/head'
 
 
 const Posts = (props) => {
-    // console.log("AllPostsProps", props)
+
     return (
         <>
             <Head> 
@@ -19,7 +19,7 @@ const Posts = (props) => {
 
 export const getStaticProps = () => {
     const allPosts = getAllposts()
-    // console.log("allPosts", allPosts)
+
     return {
         props: {
             posts: allPosts,

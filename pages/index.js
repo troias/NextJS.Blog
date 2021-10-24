@@ -22,7 +22,7 @@ const HomePage = (props) => {
 export const getStaticProps = () => {
 
     const featuredPosts = getFeaturedPosts()
-    // console.log("featuredPosts", featuredPosts)
+ 
 
     return {
         props: {

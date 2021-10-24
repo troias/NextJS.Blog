@@ -4,7 +4,7 @@ import { getPostData, readPostsDir } from '../../helpers/post-utils'
 import Head from 'next/head'
 
 const PostDetail = (props) => {
-    // console.log("PostDetail", props)
+   
     
     return (
         <div>

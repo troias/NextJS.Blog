@@ -6,7 +6,7 @@ import Image from 'next/image'
 const PostItem = (props) => {
 
     const {title, image, excerpt, date, slug} = props.post
-    // console.log("props", props.post)
+
     const formattedDate = new Date(date).toLocaleDateString('en-us', {
         day: "numeric", month: 'long', year: 'numeric'
     })
@@ -14,7 +14,7 @@ const PostItem = (props) => {
     const imagePath = `/images/posts/${slug}/${image}`
     const linkPath = `/posts/${slug}`
 
-    // console.log("imagePath", imagePath)
+ 
 
     return (
         <li className={classes.post}>

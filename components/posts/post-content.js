@@ -14,8 +14,7 @@ const PostContent = (props) => {
 
     const { post } = props
 
-    // console.log("PostContent", post)
-    // console.log("content", dummyPosts.content)
+
 
     const customRenderers = {
 
