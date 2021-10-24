@@ -1,14 +1,19 @@
 import React from 'react'
 import AllPosts from '../../components/posts/allposts'
-import { getAllposts} from '../../helpers/post-utils'
+import { getAllposts } from '../../helpers/post-utils'
+import Head from 'next/head'
 
 
 const Posts = (props) => {
     // console.log("AllPostsProps", props)
     return (
-
-        <AllPosts posts={props.posts} />
-
+        <>
+            <Head> 
+                <title> All Posts</title> 
+            <meta name="All Posts" content="All Posts" />
+            </Head>
+            <AllPosts posts={props.posts} />
+        </>
     )
 }
 

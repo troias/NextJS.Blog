@@ -1,12 +1,17 @@
 import React from 'react'
 import PostContent from '../../components/posts/post-content'
 import { getPostData, readPostsDir } from '../../helpers/post-utils'
-
+import Head from 'next/head'
 
 const PostDetail = (props) => {
     // console.log("PostDetail", props)
+    
     return (
         <div>
+            <Head> 
+                <title>{props.postData.title}</title>
+                <meta name="description" content={props.postData.excerpt}/>
+            </Head>
             <PostContent post={props.postData}/>
         </div>
     )

@@ -88,8 +88,6 @@ const ContactForm = () => {
     setReqstatus("pending")
     event.preventDefault();
 
-
-
     const email = emailRef.current.value;
     const name = nameRef.current.value;
     const message = msgRef.current.value;
@@ -101,7 +99,6 @@ const ContactForm = () => {
     };
 
     try {
-
 
       await sendContactData(msgData)
       setReqstatus("success")
