@@ -62,8 +62,8 @@ const handler = async (req, res) => {
         const result = await insertDocument(client, 'comment', newMessage)
         newMessage.id = result.insertedId
        
-        const res = await result.json()
-       console.log("res", res)
+    //     const res = await result.json()
+    //    console.log("res", res)
 
         client.close()
         res.status(201).json({ message: result })
